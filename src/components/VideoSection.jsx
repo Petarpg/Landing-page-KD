@@ -4,7 +4,7 @@ function VideoSection() {
   return (
     <section id="video" className="section">
       <div className="container">
-        <h2>Заповядайте в моя курс</h2>
+        <h2>Заповядай в нашето общество за създатели!</h2>
         <div className="video-container">
           <iframe
             className="youtube-video"

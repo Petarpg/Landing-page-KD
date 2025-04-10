@@ -10,13 +10,13 @@ function Hero() {
         <div className="container">
           <div className="window-content">
             <div className="welcome-text">
-              <span className="highlight">Здравейте</span>
+              <span className="highlight">Влез в най-доброто общество</span>
               <div className="subtitle-container">
                 <h2 className="subtitle">
-                  Отвори съзнанието си към света на <br/> видео обработката
+                Създавай съдържание, което вдъхновява. <br/> Научи как да монетизираш уменията си и да изградиш присъствие онлайн.  
                 </h2>
                 <p className="welcome-text-paragraph">
-                  Преоткрийте един нов свят и развийте себе си
+                  Преоткрий един нов свят и развий себе си!
                 </p>
                 <a href="#video" className="learn-more">Научете повече</a>
               </div>
