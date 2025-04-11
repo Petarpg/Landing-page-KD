@@ -90,6 +90,17 @@ function App() {
         <div className="animated-text vlogs">Vlogs</div>
         <div className="animated-text video-editing">Video Editing</div>
         <div className="animated-text monetization">Monetization</div>
+
+        {/* Flags */}
+        <div className="flag american" style={{
+          left: '20%',
+          top: '20%'
+        }}></div>
+        
+        <div className="flag bulgarian" style={{
+          left: '60%',
+          top: '40%'
+        }}></div>
       </div>
     </>
   );

@@ -2922,3 +2922,72 @@ h6,
     transform: translate(0, -20px) rotate(0deg);
   }
 }
+
+/* Flag elements */
+.flag {
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  animation: flagFloat 20s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* American Flag */
+.flag.american {
+  background: linear-gradient(
+    to bottom,
+    #B22234 0%, #B22234 7.7%,
+    white 7.7%, white 15.4%,
+    #B22234 15.4%, #B22234 23.1%,
+    white 23.1%, white 30.8%,
+    #B22234 30.8%, #B22234 38.5%,
+    white 38.5%, white 46.2%,
+    #B22234 46.2%, #B22234 53.9%,
+    white 53.9%, white 61.6%,
+    #B22234 61.6%, #B22234 69.3%,
+    white 69.3%, white 77%,
+    #B22234 77%, #B22234 84.7%,
+    white 84.7%, white 92.4%,
+    #B22234 92.4%, #B22234 100%
+  );
+  animation-delay: 0s;
+}
+
+.flag.american::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  background: #3C3B6E;
+  top: 0;
+  left: 0;
+}
+
+/* Bulgarian Flag */
+.flag.bulgarian {
+  background: linear-gradient(
+    to bottom,
+    white 0%, white 33.33%,
+    #009B77 33.33%, #009B77 66.66%,
+    #D82228 66.66%, #D82228 100%
+  );
+  animation-delay: 10s;
+}
+
+@keyframes flagFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(100px, 50px) rotate(5deg);
+  }
+  50% {
+    transform: translate(200px, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate(100px, -50px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
