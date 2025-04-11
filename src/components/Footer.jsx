@@ -4,7 +4,7 @@ import tiktokIcon from "../assets/Icons/TikTok.png";
 
 function Footer() {
   return (
-    <footer className="footer-section">
+    <footer className="footer-section" id="footer">
       <div className="footer-content">
         <h2>За Нас</h2>
         <p className="about-text">

@@ -17,6 +17,80 @@ function App() {
       <VideoSection />
       <CourseContent />
       <Footer />
+      <div className="stars-container">
+        {/* Morning light effects are added via CSS pseudo-elements */}
+        
+        {/* Sun */}
+        <div className="sun"></div>
+        
+        {/* Moon */}
+        <div className="moon"></div>
+        
+        {/* Light beams */}
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="light-beam" style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            transform: `rotate(${Math.random() * 360}deg)`,
+            animationDelay: `${Math.random() * 4}s`
+          }} />
+        ))}
+        
+        {/* Shimmering stars */}
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div key={i} className="star" style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`
+          }} />
+        ))}
+        
+        {/* Planets */}
+        <div className="planet planet-1"></div>
+        <div className="planet planet-2"></div>
+        <div className="planet planet-3"></div>
+        
+        {/* Rockets */}
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i} className="rocket" style={{
+            animationDelay: `${i * 2}s`
+          }} />
+        ))}
+        
+        {/* Meteorites */}
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="meteorite" style={{
+            left: `${Math.random() * 100}%`,
+            '--duration': `${Math.random() * 3 + 2}s`,
+            animationDelay: `${Math.random() * 5}s`
+          }} />
+        ))}
+
+        {/* Flying Devices */}
+        <div className="flying-device camera" style={{
+          left: '15%',
+          top: '40%',
+          animationDelay: '0s'
+        }}></div>
+        
+        <div className="flying-device microphone" style={{
+          left: '70%',
+          top: '60%',
+          animationDelay: '2s'
+        }}></div>
+        
+        <div className="flying-device laptop" style={{
+          left: '45%',
+          top: '30%',
+          animationDelay: '4s'
+        }}></div>
+
+        {/* Animated Text Elements */}
+        <div className="animated-text content">Content</div>
+        <div className="animated-text vlogs">Vlogs</div>
+        <div className="animated-text video-editing">Video Editing</div>
+        <div className="animated-text monetization">Monetization</div>
+      </div>
     </>
   );
 }
