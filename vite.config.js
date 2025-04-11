@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Landing-page-KD/", // Задай базовия път спрямо името на репото
+  base: "/Landing-page-KD/",
 });
