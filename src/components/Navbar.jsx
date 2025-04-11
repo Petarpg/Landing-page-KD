@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Navbar() {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -12,11 +12,11 @@ function Navbar() {
       <div className="nav-brand">
         <img src="/src/assets/Images/RVS.png" alt="RVS Logo" className="brand-logo" />
       </div>
-      
+
       <button 
         className={`burger-menu ${isMenuOpen ? 'active' : ''}`} 
-        aria-label="Toggle menu"
         onClick={toggleMenu}
+        aria-label="Toggle menu"
       >
         <span></span>
         <span></span>
@@ -30,16 +30,16 @@ function Navbar() {
           <li><a href="#footer" onClick={() => setIsMenuOpen(false)}>За нас</a></li>
         </ul>
         <a 
-          href="https://whop.com/viral-video-social-media/" 
+          href="https://calendly.com/veselinovkrasen/30min" 
           className="nav-cta" 
           target="_blank"
           rel="noopener noreferrer"
         >
-          ЗАПИШИ СЕ СЕГА
+          ЗАПАЗИ СИ РАЗГОВОР
         </a>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar; 
