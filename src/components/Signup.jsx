@@ -15,7 +15,11 @@ const Signup = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      return setError('Passwords do not match');
+      return setError('Паролите не съвпадат');
+    }
+
+    if (password.length < 6) {
+      return setError('Паролата трябва да е поне 6 символа');
     }
 
     try {
@@ -24,7 +28,22 @@ const Signup = () => {
       await signup(email, password);
       navigate('/');
     } catch (err) {
-      setError('Failed to create an account');
+      switch (err.code) {
+        case 'auth/email-already-in-use':
+          setError('Този имейл вече е регистриран');
+          break;
+        case 'auth/invalid-email':
+          setError('Невалиден имейл адрес');
+          break;
+        case 'auth/operation-not-allowed':
+          setError('Регистрацията е временно спряна');
+          break;
+        case 'auth/weak-password':
+          setError('Паролата е твърде слаба');
+          break;
+        default:
+          setError('Грешка при регистрация. Моля, опитайте отново');
+      }
     }
     setLoading(false);
   };
@@ -32,7 +51,7 @@ const Signup = () => {
   return (
     <div className="auth-container">
       <div className="auth-form-container">
-        <h2>Sign Up</h2>
+        <h2>Регистрация</h2>
         {error && <div className="auth-error">{error}</div>}
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -63,11 +82,11 @@ const Signup = () => {
             />
           </div>
           <button disabled={loading} type="submit" className="auth-button">
-            Sign Up
+            {loading ? 'Регистриране...' : 'Регистрирай се'}
           </button>
         </form>
         <div className="auth-links">
-          Already have an account? <Link to="/login">Sign In</Link>
+          Вече имаш акаунт? <Link to="/login">Влез</Link>
         </div>
       </div>
     </div>

@@ -18,7 +18,22 @@ const Login = () => {
       await login(email, password);
       navigate('/');
     } catch (err) {
-      setError('Failed to sign in');
+      switch (err.code) {
+        case 'auth/user-not-found':
+          setError('Потребител с този имейл не съществува');
+          break;
+        case 'auth/wrong-password':
+          setError('Грешна парола');
+          break;
+        case 'auth/invalid-email':
+          setError('Невалиден имейл адрес');
+          break;
+        case 'auth/too-many-requests':
+          setError('Твърде много опити. Моля, опитайте по-късно');
+          break;
+        default:
+          setError('Грешка при влизане. Моля, опитайте отново');
+      }
     }
     setLoading(false);
   };
@@ -26,7 +41,7 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-form-container">
-        <h2>Sign In</h2>
+        <h2>Влез</h2>
         {error && <div className="auth-error">{error}</div>}
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -48,11 +63,11 @@ const Login = () => {
             />
           </div>
           <button disabled={loading} type="submit" className="auth-button">
-            Sign In
+            {loading ? 'Влизане...' : 'Влез'}
           </button>
         </form>
         <div className="auth-links">
-          Need an account? <Link to="/signup">Sign Up</Link>
+          Нямаш акаунт? <Link to="/signup">Регистрирай се</Link>
         </div>
       </div>
     </div>
