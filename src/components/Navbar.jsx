@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { currentUser, logout } = useAuth();
+  const { t } = useLanguage();
 
   const handleLogout = async () => {
     try {
@@ -12,6 +16,10 @@ const Navbar = () => {
     } catch (error) {
       console.error('Failed to log out:', error);
     }
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -28,9 +36,9 @@ const Navbar = () => {
       
       <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
         <ul className="nav-links">
-          <li><a href="#home" onClick={() => setIsMenuOpen(false)}>Начало</a></li>
-          <li><a href="#video" onClick={() => setIsMenuOpen(false)}>Общество</a></li>
-          <li><a href="#footer" onClick={() => setIsMenuOpen(false)}>За нас</a></li>
+          <li><a href="#home" onClick={() => setIsMenuOpen(false)}>{t('home')}</a></li>
+          <li><a href="#video" onClick={() => setIsMenuOpen(false)}>{t('community')}</a></li>
+          <li><a href="#footer" onClick={() => setIsMenuOpen(false)}>{t('aboutUs')}</a></li>
           {currentUser ? (
             <>
               <li className="user-email">{currentUser.email}</li>
@@ -43,10 +51,10 @@ const Navbar = () => {
           ) : (
             <>
               <li>
-                <Link to="/login" className="login-button">ВЛЕЗ</Link>
+                <Link to="/login" className="login-button">{t('login')}</Link>
               </li>
               <li>
-                <Link to="/signup" className="nav-cta">РЕГИСТРИРАЙ СЕ</Link>
+                <Link to="/signup" className="nav-cta">{t('signup')}</Link>
               </li>
             </>
           )}
@@ -55,12 +63,17 @@ const Navbar = () => {
 
       <button 
         className={`burger-menu ${isMenuOpen ? 'active' : ''}`}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        onClick={toggleMenu}
+        aria-label={t('toggleMenu')}
       >
         <span></span>
         <span></span>
         <span></span>
       </button>
+
+      <div className="user-section">
+        <LanguageToggle />
+      </div>
     </nav>
   );
 };
