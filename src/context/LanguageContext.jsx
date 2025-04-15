@@ -28,7 +28,7 @@ const translations = {
     // Footer
     reelVisionDescription: 'Reel Vision is not just a platform. We created it as a system – for people who want to earn from their skills in the digital world.',
     ourMission: '🎯 Our Mission: To provide a clear path and real tools for:',
-    createEngagingContent: 'Creating content that attracts',
+    createEngagingContent: 'Creating engaging content',
     turnSkillsIntoIncome: 'Turning skills into income',
     buildTrustedBrand: 'Building a trusted personal brand',
     noQuickSuccess: 'We don\'t promise success in 7 days.',
@@ -166,7 +166,20 @@ const translations = {
     futureSubtitle: 'If you\'re not using video in your communication – you\'re falling behind. Today, attention is the most valuable resource, and video is the most direct way to win it.',
     benefitsList: '• It explains what you do – in seconds, • It builds trust – even before you\'ve met, • It sells – even when you sleep, • You don\'t need an office. You don\'t need a big team',
     limitationsList: '• You need skill + system, • Who does it work for?, • For freelancers who want clients, • For creators who want to be noticed, • For businesses who want more sales',
-    closingText: '📌 Video isn\'t a "trend". It\'s the infrastructure of modern marketing. Whether you\'ll use it – is a matter of choice. But every day you don\'t do it – you pay with time, money, and missed opportunities.'
+    closingText: '📌 Video isn\'t a "trend". It\'s the infrastructure of modern marketing. Whether you\'ll use it – is a matter of choice. But every day you don\'t do it – you pay with time, money, and missed opportunities.',
+
+    // About Us Section
+    aboutUsTitle: 'About Us',
+    aboutUsDescription: 'Reel Vision is not just a platform. We created it as a system – for people who want to earn from their skills in the digital world.',
+    ourMissionTitle: '🎯 Our Mission: To provide a clear path and real tools for:',
+    contentCreation: 'Creating content that attracts',
+    skillsToIncome: 'Turning skills into income',
+    buildPersonalBrand: 'Building a personal brand with trust',
+    noSevenDayPromise: 'We don\'t promise success in 7 days.',
+    supportPromise: 'We promise you support, structure and results if you invest actions and time.',
+    connectWith: 'Connect with me through:',
+    signUpNowButton: 'SIGN UP NOW',
+    bookCallButton: 'BOOK A CALL',
   },
   bg: {
     // Navbar
@@ -333,14 +346,27 @@ const translations = {
     futureSubtitle: 'Ако не използваш видео в комуникацията си – изоставаш. Днес вниманието е най-ценният ресурс, а видеото е най-директният начин да го спечелиш.',
     benefitsList: '• То обяснява какво правиш – за секунди, • То изгражда доверие – още преди да сте се срещнали, • То продава – дори когато спиш, • Не ти трябва офис. Не ти трябва голям екип',
     limitationsList: '• Трябва ти умение + система, • За кого работи?, • За фрийлансъри, които искат клиенти, • За създатели, които искат да бъдат забелязани, • За бизнеси, които искат повече продажби',
-    closingText: '📌 Видео не е "тенденция". То е инфраструктурата на модерния маркетинг. Дали ще го използваш – е въпрос на избор. Но всеки ден, в който не го правиш – плащаш с време, пари и пропуснати възможности.'
+    closingText: '📌 Видео не е "тенденция". То е инфраструктурата на модерния маркетинг. Дали ще го използваш – е въпрос на избор. Но всеки ден, в който не го правиш – плащаш с време, пари и пропуснати възможности.',
+
+    // About Us Section
+    aboutUsTitle: 'За Нас',
+    aboutUsDescription: 'Reel Vision не е просто платформа. Създадохме я като система – за хора, които искат да печелят от уменията си в дигиталния свят.',
+    ourMissionTitle: '🎯 Нашата мисия: Да дадем ясен път и реални инструменти за:',
+    contentCreation: 'Създаване на съдържание, което привлича',
+    skillsToIncome: 'Превръщане на умения в доход',
+    buildPersonalBrand: 'Изграждане на личен бранд с доверие',
+    noSevenDayPromise: 'Не обещаваме успех за 7 дни.',
+    supportPromise: 'Обещаваме ти подкрепа, структура и резултати, ако вложиш действия и време.',
+    connectWith: 'Свържете се с мен чрез:',
+    signUpNowButton: 'ЗАПИШИ СЕ СЕГА',
+    bookCallButton: 'ЗАПАЗИ СИ РАЗГОВОР',
   }
 };
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('bg');
+  const [language, setLanguage] = useState('en');
 
   const t = (key) => {
     return translations[language][key] || key;

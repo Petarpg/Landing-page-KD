@@ -31,7 +31,7 @@ main {
 
 /* Ensure text is readable on dark background */
 h1, h2, h3, h4, h5, h6, p {
-  color: #ffffff;
+  color: #000000;
 }
 
 .navbar {
@@ -340,22 +340,124 @@ h1, h2, h3, h4, h5, h6, p {
 
 .section {
   position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .container {
-  max-width: 1200px;
-  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 2rem;
   position: relative;
   z-index: 2;
-  text-align: center;
-  box-sizing: border-box;
+}
+
+/* Global section styling */
+.about-us-section,
+.testimonials-section,
+.benefits-section,
+.footer-section,
+.video-section,
+.course-detail-section {
+  padding: 2rem;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-section:hover,
+.testimonials-section:hover,
+.benefits-section:hover,
+.video-section:hover,
+.course-detail-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(15, 255, 190, 0.2);
+  border-color: rgba(15, 255, 190, 0.3);
+  background: linear-gradient(135deg, rgba(15, 255, 190, 0.15) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+/* Text styling */
+h1, h2, h3, .section-title {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p, .description {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* List items styling */
+.benefits-list li,
+.limitations-list li,
+.mission-list li {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.benefits-list li::before,
+.limitations-list li::before,
+.mission-list li::before {
+  content: "•";
+  color: #0fffbe;
+  position: absolute;
+  left: 0;
+  text-shadow: 0 0 10px rgba(15, 255, 190, 0.5);
+}
+
+/* Button styling */
+.primary-button,
+.secondary-button,
+.start-button {
+  background: #0fffbe;
+  color: #0f1624;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(15, 255, 190, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .about-us-section,
+  .testimonials-section,
+  .benefits-section,
+  .footer-section,
+  .video-section,
+  .course-detail-section {
+    padding: 1.5rem;
+  }
+
+  h1, h2, .section-title {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p, .description {
+    font-size: 1rem;
+  }
 }
 
 h2 {
@@ -406,7 +508,6 @@ h2 {
 .footer-section {
   position: relative;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -1152,6 +1253,16 @@ body::after {
   padding-left: 2rem;
   position: relative;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.benefit-item::before,
+.limitation-item::before {
+  content: "•";
+  color: #0fffbe;
+  position: absolute;
+  left: 0;
 }
 
 .closing-text {
@@ -1434,12 +1545,13 @@ body::after {
 }
 
 .testimonials-section .section-title {
-  color: #0fffbe;
+  color: #0fffbf;
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 3rem;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Roboto", sans-serif;
 }
 
 .testimonials-container {
@@ -1452,13 +1564,20 @@ body::after {
 }
 
 .testimonial-card {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1.5px solid rgba(128, 128, 128, 0.3);
-  border-radius: 20px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  min-width: calc(100% - 32px);
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, rgba(15, 255, 190, 0.15) 0%, rgba(0, 0, 0, 0.2) 100%);
+  border-color: rgba(15, 255, 190, 0.3);
+  box-shadow: 0 10px 20px rgba(15, 255, 190, 0.2);
 }
 
 .testimonial-header {
@@ -1499,17 +1618,22 @@ body::after {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Roboto", sans-serif;
 }
 
 .testimonial-date {
   color: rgba(255, 255, 255, 0.6);
   font-size: 12px;
   margin-bottom: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
 .testimonial-purchase-time {
   color: #0fffbe;
   font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 .testimonial-text {
@@ -1519,6 +1643,7 @@ body::after {
   margin-bottom: 8px;
   font-weight: 300;
   white-space: pre-line;
+  font-family: "Roboto", sans-serif;
 }
 
 .read-more {
@@ -1526,6 +1651,7 @@ body::after {
   font-size: 14px;
   text-decoration: none;
   font-weight: 500;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Custom scrollbar */
@@ -1706,9 +1832,9 @@ html {
 }
 
 .description {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.6;
+  color: #fafafa;
+  font-size: 2rem;
+  line-height: 1.3;
   margin-bottom: 2rem;
 }
 

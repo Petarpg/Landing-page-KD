@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import '../styles/DirectorValve.css';
 
@@ -7,6 +8,7 @@ const DirectorValve = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Show the valve after a short delay for the opening animation
@@ -91,10 +93,10 @@ const DirectorValve = () => {
           <div className="clapper-content">
             <div className="clapper-text">
               <div className="clapper-left">
-                <div>SCENE</div>
-                <div>DATE</div>
-                <div>PROD.CO.</div>
-                <div>DIRECTOR</div>
+                <div>{t('scene')}</div>
+                <div>{t('date')}</div>
+                <div>{t('prodCo')}</div>
+                <div>{t('director')}</div>
               </div>
               <div className="clapper-center">
                 <div>001</div>
@@ -103,9 +105,9 @@ const DirectorValve = () => {
                 <div>KRASKATA</div>
               </div>
               <div className="clapper-right">
-                <div>TAKE</div>
-                <div>ROLL</div>
-                <div>SOUND</div>
+                <div>{t('take')}</div>
+                <div>{t('roll')}</div>
+                <div>{t('sound')}</div>
               </div>
               <div className="clapper-far-right">
                 <div>1A</div>
@@ -114,7 +116,7 @@ const DirectorValve = () => {
               </div>
             </div>
             <button onClick={handleContinue} className="continue-button">
-              НАПРЕД КЪМ САЙТА
+              {t('continueToSite')}
             </button>
           </div>
         </div>
