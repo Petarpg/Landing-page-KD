@@ -23,6 +23,17 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <a 
@@ -37,25 +48,16 @@ const Navbar = () => {
       
       <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
         <ul className="nav-links">
-          <li><a href="#home" onClick={() => setIsMenuOpen(false)}>{t('home')}</a></li>
-          <li><a href="#video" onClick={() => setIsMenuOpen(false)}>{t('community')}</a></li>
-          <li><a href="#footer" onClick={() => setIsMenuOpen(false)}>{t('aboutUs')}</a></li>
-          {currentUser ? (
+          <li><button onClick={() => scrollToSection('home')} className="nav-link">{t('home')}</button></li>
+          <li><button onClick={() => scrollToSection('video')} className="nav-link">{t('community')}</button></li>
+          <li><button onClick={() => scrollToSection('footer')} className="nav-link">{t('aboutUs')}</button></li>
+          {currentUser && (
             <>
               <li className="user-email">{currentUser.email}</li>
               <li>
                 <button onClick={handleLogout} className="logout-button">
                   {t('logout')}
                 </button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <Link to="/login" className="login-button">{t('login')}</Link>
-              </li>
-              <li>
-                <Link to="/signup" className="nav-cta">{t('signup')}</Link>
               </li>
             </>
           )}
