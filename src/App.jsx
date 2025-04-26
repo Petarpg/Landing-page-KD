@@ -1,7 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import { LanguageProvider } from './context/LanguageContext';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import DirectorValve from "./components/DirectorValve";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -9,13 +12,12 @@ import VideoSection from "./components/VideoSection";
 import CourseContent from "./components/CourseContent";
 import Footer from "./components/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
 import "./styles/AnimatedBackground.css";
 
 function AppContent() {
   const location = useLocation();
-  const isValvePage = location.pathname === '/';
+  const isValvePage =
+    location.pathname === "/" || location.pathname === "/Landing-page-KD/";
 
   return (
     <div className="App">
@@ -23,16 +25,17 @@ function AppContent() {
       {!isValvePage && <Navbar />}
       <main>
         <Routes>
-          <Route path="/main" element={
-            <>
-              <Hero />
-              <VideoSection />
-              <CourseContent />
-              <Footer />
-            </>
-          } />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/main"
+            element={
+              <>
+                <Hero />
+                <VideoSection />
+                <CourseContent />
+                <Footer />
+              </>
+            }
+          />
           <Route path="/" element={<DirectorValve />} />
         </Routes>
       </main>
@@ -42,12 +45,8 @@ function AppContent() {
 
 const App = () => {
   return (
-    <Router>
-      <AuthProvider>
-        <LanguageProvider>
-          <AppContent />
-        </LanguageProvider>
-      </AuthProvider>
+    <Router basename="/Landing-page-KD">
+      <AppContent />
     </Router>
   );
 };
