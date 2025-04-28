@@ -1,6 +1,13 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
-import '../styles/Footer.css';
+import "../styles/Footer.css";
+
+// Import social media icons
+import TikTokIcon from "../assets/Icons/TikTok.png";
+import FacebookIcon from "../assets/Icons/Facebook.png";
+import InstagramIcon from "../assets/Icons/Instagram.png";
+import YouTubeIcon from "../assets/Icons/YouTube.png";
+import DiscordIcon from "../assets/Icons/discord.png";
 
 function Footer() {
   const { t } = useLanguage();
@@ -13,65 +20,62 @@ function Footer() {
         <div className="flag flag-bg"></div>
         <div className="flag flag-us"></div>
       </div>
-      <div className="floating-words">
-      </div>
+      <div className="floating-words"></div>
       <div className="footer-content">
-        <h2>{t('aboutUsTitle')}</h2>
-        <p>
-          {t('reelVisionDescription')}
-        </p>
+        <h2>{t("aboutUsTitle")}</h2>
+        <p>{t("reelVisionDescription")}</p>
 
         <div className="mission-section">
-          <p>{t('ourMission')}</p>
+          <p>{t("ourMission")}</p>
           <div className="mission-list">
-            <p>{t('createEngagingContent')}</p>
-            <p>{t('turnSkillsIntoIncome')}</p>
-            <p>{t('buildTrustedBrand')}</p>
+            <p>{t("createEngagingContent")}</p>
+            <p>{t("turnSkillsIntoIncome")}</p>
+            <p>{t("buildTrustedBrand")}</p>
           </div>
         </div>
 
         <div className="promise-section">
-          <p>{t('noQuickSuccess')}</p>
-          <p>{t('promiseSupport')}</p>
+          <p>{t("noQuickSuccess")}</p>
+          <p>{t("promiseSupport")}</p>
         </div>
 
         <div className="social-section">
-          <p>{t('connectWithMe')}</p>
+          <p>{t("connectWithMe")}</p>
           <div className="social-icons">
             <a
               href="https://www.tiktok.com/@krasenusa"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/src/assets/Icons/TikTok.png" alt="TikTok" />
+              <img src={TikTokIcon} alt="TikTok" />
             </a>
             <a
               href="https://www.facebook.com/krasen.diqnov/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/src/assets/Icons/Facebook.png" alt="Facebook" />
+              <img src={FacebookIcon} alt="Facebook" />
             </a>
             <a
               href="https://www.instagram.com/krasenveselinov"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/src/assets/Icons/Instagram.png" alt="Instagram" />
+              <img src={InstagramIcon} alt="Instagram" />
             </a>
             <a
               href="https://youtube.com/@kraskatamomche"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/src/assets/Icons/YouTube.png" alt="YouTube" />
+              <img src={YouTubeIcon} alt="YouTube" />
             </a>
             <a
               href="https://discord.gg/dxbFjTA9"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/src/assets/Icons/discord.png" alt="Discord" />
+              <img src={DiscordIcon} alt="Discord" />
             </a>
           </div>
         </div>

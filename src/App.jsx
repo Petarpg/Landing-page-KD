@@ -1,7 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import { LanguageProvider } from './context/LanguageContext';
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import { LanguageProvider } from "./context/LanguageContext";
 import DirectorValve from "./components/DirectorValve";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -9,13 +14,15 @@ import VideoSection from "./components/VideoSection";
 import CourseContent from "./components/CourseContent";
 import Footer from "./components/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import OfferSection from "./components/OfferSection";
 import "./styles/AnimatedBackground.css";
+import "./App.css";
 
 function AppContent() {
   const location = useLocation();
-  const isValvePage = location.pathname === '/';
+  const isValvePage =
+    location.pathname === "/" || location.pathname === "/Landing-page-KD/";
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -23,16 +30,18 @@ function AppContent() {
       {!isValvePage && <Navbar />}
       <main>
         <Routes>
-          <Route path="/main" element={
-            <>
-              <Hero />
-              <VideoSection />
-              <CourseContent />
-              <Footer />
-            </>
-          } />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/main"
+            element={
+              <>
+                <Hero />
+                <VideoSection />
+                <OfferSection />
+                <CourseContent />
+                <Footer />
+              </>
+            }
+          />
           <Route path="/" element={<DirectorValve />} />
         </Routes>
       </main>
@@ -42,7 +51,7 @@ function AppContent() {
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/Landing-page-KD">
       <AuthProvider>
         <LanguageProvider>
           <AppContent />

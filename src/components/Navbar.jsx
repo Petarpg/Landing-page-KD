@@ -10,6 +10,13 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { currentUser, logout } = useAuth();
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 600);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -43,7 +50,9 @@ const Navbar = () => {
         rel="noopener noreferrer"
       >
         <img src={rvsLogo} alt="RVS Logo" className="brand-logo" />
-        <span>{t('bookCall')}</span>
+        <span>
+          {isMobile ? t('bookCallMobile') || 'Book a Free Call with Krasen' : t('bookCall')}
+        </span>
       </a>
       
       <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
